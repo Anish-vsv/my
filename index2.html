@@ -1,0 +1,941 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Kishu 🖤</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050505;
+    color:#f4f4f4;
+    font-family:'DM Sans',sans-serif;
+    overflow-x:hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 15% 20%,rgba(255,255,255,.06),transparent 25%),
+        radial-gradient(circle at 85% 70%,rgba(255,255,255,.05),transparent 25%);
+    pointer-events:none;
+    z-index:-2;
+}
+
+.stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    opacity:.5;
+    animation:twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:.15;transform:scale(.7);}
+    to{opacity:.8;transform:scale(1.4);}
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+    width:90%;
+    max-width:1100px;
+    margin:20px auto;
+    padding:16px 22px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:30px;
+
+    background:rgba(15,15,15,.65);
+    backdrop-filter:blur(20px);
+
+    position:relative;
+    z-index:20;
+}
+
+.logo{
+    font-family:'Caveat',cursive;
+    font-size:28px;
+    font-weight:700;
+}
+
+.nav-right{
+    font-size:13px;
+    color:#aaa;
+}
+
+/* =========================
+   FLOATING STICKERS
+========================= */
+
+.sticker{
+    position:fixed;
+    font-size:38px;
+    z-index:5;
+    animation:float 5s ease-in-out infinite;
+    pointer-events:none;
+    filter:drop-shadow(0 5px 10px rgba(255,255,255,.08));
+}
+
+.s1{top:18%;left:4%;}
+.s2{top:35%;right:4%;animation-delay:1s;}
+.s3{bottom:20%;left:5%;animation-delay:2s;}
+.s4{bottom:10%;right:6%;animation-delay:1.5s;}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0) rotate(-5deg);
+    }
+    50%{
+        transform:translateY(-18px) rotate(7deg);
+    }
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.moon{
+    font-size:60px;
+    margin-bottom:20px;
+    animation:moonFloat 4s ease-in-out infinite;
+}
+
+@keyframes moonFloat{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+}
+
+.small-tag{
+    display:inline-block;
+    padding:8px 18px;
+    border:1px solid #333;
+    border-radius:30px;
+    color:#aaa;
+    font-size:12px;
+    letter-spacing:1px;
+    margin-bottom:25px;
+}
+
+h1{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(55px,10vw,110px);
+    line-height:1;
+    letter-spacing:-4px;
+
+    background:linear-gradient(
+        120deg,
+        #ffffff,
+        #aaaaaa,
+        #ffffff
+    );
+
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.nickname{
+    font-family:'Caveat',cursive;
+    font-size:42px;
+    color:#aaa;
+    margin-top:10px;
+}
+
+.hero p{
+    max-width:650px;
+    margin:30px auto;
+    color:#999;
+    line-height:1.9;
+    font-size:15px;
+}
+
+.btn{
+    padding:14px 28px;
+    border-radius:30px;
+
+    border:1px solid #444;
+    background:#fff;
+    color:#050505;
+
+    font-weight:700;
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 40px rgba(255,255,255,.12);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:100px 20px;
+}
+
+.section-label{
+    color:#666;
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.section-title{
+    font-family:'Playfair Display',serif;
+    font-size:45px;
+    margin-bottom:45px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    padding:35px 25px;
+
+    border:1px solid #222;
+    border-radius:25px;
+
+    background:linear-gradient(
+        145deg,
+        #111,
+        #080808
+    );
+
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:#444;
+}
+
+.card-icon{
+    font-size:40px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    font-family:'Playfair Display',serif;
+    font-size:24px;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#888;
+    line-height:1.8;
+    font-size:14px;
+}
+
+/* =========================
+   POETRY
+========================= */
+
+.poetry{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
+
+.poem-box{
+    padding:45px;
+    border:1px solid #222;
+    border-radius:30px;
+    background:#0b0b0b;
+}
+
+.poem{
+    font-family:'Caveat',cursive;
+    font-size:30px;
+    line-height:1.6;
+    color:#ddd;
+}
+
+.poem small{
+    display:block;
+    margin-top:25px;
+    font-family:'DM Sans',sans-serif;
+    color:#666;
+    font-size:12px;
+}
+
+/* =========================
+   KRISHNA
+========================= */
+
+.krishna{
+    text-align:center;
+    padding:80px 30px;
+
+    border:1px solid #222;
+    border-radius:35px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #161616,
+            #080808 70%
+        );
+}
+
+.flute{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.krishna h2{
+    font-family:'Playfair Display',serif;
+    font-size:42px;
+}
+
+.krishna p{
+    max-width:650px;
+    margin:20px auto;
+    color:#888;
+    line-height:1.9;
+}
+
+/* =========================
+   DOCTOR DREAM
+========================= */
+
+.dream{
+    text-align:center;
+}
+
+.doctor-icon{
+    font-size:70px;
+    margin-bottom:20px;
+}
+
+.dream h2{
+    font-family:'Playfair Display',serif;
+    font-size:48px;
+}
+
+.dream p{
+    max-width:650px;
+    margin:20px auto;
+    color:#888;
+    line-height:1.9;
+}
+
+/* =========================
+   SECRET
+========================= */
+
+.secret{
+    display:none;
+    margin-top:25px;
+    padding:30px;
+
+    border:1px solid #333;
+    border-radius:20px;
+
+    background:#111;
+
+    animation:appear .7s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.secret p{
+    color:#bbb;
+    line-height:1.9;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+    padding:70px 20px;
+    border-top:1px solid #171717;
+    color:#555;
+}
+
+.footer-name{
+    font-family:'Caveat',cursive;
+    font-size:30px;
+    color:#aaa;
+}
+
+/* =========================
+   HEARTS
+========================= */
+
+.heart{
+    position:fixed;
+    bottom:-30px;
+    pointer-events:none;
+    z-index:50;
+    animation:rise 6s linear forwards;
+}
+
+@keyframes rise{
+    0%{
+        transform:translateY(0) scale(.5);
+        opacity:0;
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:750px){
+
+    nav{
+        width:94%;
+    }
+
+    .nav-right{
+        display:none;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .poetry{
+        grid-template-columns:1fr;
+    }
+
+    .poem-box{
+        padding:30px;
+    }
+
+    .poem{
+        font-size:25px;
+    }
+
+    .section-title{
+        font-size:36px;
+    }
+
+    .sticker{
+        font-size:27px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- STAR BACKGROUND -->
+
+<div class="stars" id="stars"></div>
+
+
+<!-- CUTE STICKERS -->
+
+<div class="sticker s1">🧸</div>
+<div class="sticker s2">🎀</div>
+<div class="sticker s3">🖤</div>
+<div class="sticker s4">🌙</div>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        Kishu ♡
+    </div>
+
+    <div class="nav-right">
+        a little universe made for you ✦
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<div class="hero">
+
+    <div class="hero-content">
+
+        <div class="moon">
+            🌙
+        </div>
+
+        <div class="small-tag">
+            A LITTLE SOMETHING FOR YOU
+        </div>
+
+        <h1>
+            Kishu
+        </h1>
+
+        <div class="nickname">
+            the girl with a thousand thoughts ✍🏻
+        </div>
+
+        <p>
+            Somewhere between poems, dreams, quiet moments
+            and the stars above...
+            there is a girl named Kishu who makes her own
+            little world beautiful.
+        </p>
+
+        <button class="btn" onclick="showSecret()">
+            Open a little surprise ♡
+        </button>
+
+        <div class="secret" id="secret">
+
+            <p>
+                Hey Kishu 🖤<br><br>
+
+                This isn't a fancy gift or anything huge.
+                It's just a tiny corner of the internet made
+                especially for you.
+
+                <br><br>
+
+                Keep writing your poems.
+                Keep dreaming big.
+                Keep that beautiful dream of becoming a doctor.
+
+                <br><br>
+
+                And most importantly...
+                keep being Kishu. ✨
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ABOUT HER -->
+
+<section>
+
+    <div class="section-label">
+        LITTLE THINGS
+    </div>
+
+    <h2 class="section-title">
+        Things that make Kishu... Kishu.
+    </h2>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">
+                ✍🏻
+            </div>
+
+            <h3>
+                The Poet
+            </h3>
+
+            <p>
+                Some people express themselves through words.
+                Some turn those words into poetry.
+                And then there is Kishu.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🪷
+            </div>
+
+            <h3>
+                The Believer
+            </h3>
+
+            <p>
+                A heart that finds peace in Lord Krishna,
+                faith in difficult moments,
+                and strength to keep moving forward.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🩺
+            </div>
+
+            <h3>
+                The Dreamer
+            </h3>
+
+            <p>
+                One day the little dream will become a reality:
+                a white coat, a stethoscope,
+                and the name "Doctor Kishu."
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- POETRY -->
+
+<section>
+
+    <div class="poetry">
+
+        <div>
+
+            <div class="section-label">
+                FOR THE GIRL WHO LOVES POETRY
+            </div>
+
+            <h2 class="section-title">
+                Maybe you're not just writing poems...
+            </h2>
+
+            <p style="color:#777;line-height:1.9;">
+                Maybe you're collecting little pieces of your
+                heart and turning them into words.
+            </p>
+
+        </div>
+
+
+        <div class="poem-box">
+
+            <div class="poem">
+
+                "She writes what she cannot say,<br>
+                hides dreams between the lines,<br>
+                looks at the stars at night,<br>
+                and somehow makes silence rhyme."
+
+                <small>
+                    — for Kishu 🖤
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- KRISHNA -->
+
+<section>
+
+    <div class="krishna">
+
+        <div class="flute">
+            🪷 🦚 🎶
+        </div>
+
+        <h2>
+            A Little Peace
+        </h2>
+
+        <p>
+            For the girl who finds comfort in Lord Krishna —
+            may your faith keep your heart peaceful,
+            your mind strong,
+            and your journey beautiful.
+
+            <br><br>
+
+            <i>
+                "Do your duty, and don't worry about the results."
+            </i>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- DREAM -->
+
+<section>
+
+    <div class="dream">
+
+        <div class="doctor-icon">
+            🩺
+        </div>
+
+        <div class="section-label">
+            THE DREAM
+        </div>
+
+        <h2>
+            Future Doctor Kishu
+        </h2>
+
+        <p>
+            Maybe today it's just a dream.
+
+            <br><br>
+
+            But one day there will be a white coat,
+            a stethoscope around your neck,
+            tired nights that were worth it,
+            and someone calling you...
+
+            <br><br>
+
+            <b>"Doctor." 🤍</b>
+        </p>
+
+        <br>
+
+        <button class="btn" onclick="makeHearts()">
+            Believe in the dream ✨
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section>
+
+    <div class="krishna">
+
+        <div style="font-size:45px;">
+            🖤 ✨ 🌙
+        </div>
+
+        <h2>
+            Stay exactly the way you are.
+        </h2>
+
+        <p>
+            A little mysterious.
+            A little crazy.
+            A little poetic.
+
+            <br><br>
+
+            And completely Kishu.
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <div class="footer-name">
+        Made especially for Kishu ♡
+    </div>
+
+    <br>
+
+    With a little code, a little creativity,
+    and a lot of good wishes.
+
+    <br><br>
+
+    © 2026 • Kishu's Little Universe
+
+</footer>
+
+
+<script>
+
+/* CREATE STARS */
+
+const stars = document.getElementById("stars");
+
+for(let i=0;i<90;i++){
+
+    const star = document.createElement("div");
+
+    star.className="star";
+
+    star.style.left =
+        Math.random()*100+"%";
+
+    star.style.top =
+        Math.random()*100+"%";
+
+    star.style.animationDelay =
+        Math.random()*3+"s";
+
+    stars.appendChild(star);
+}
+
+
+/* SECRET MESSAGE */
+
+function showSecret(){
+
+    const box =
+        document.getElementById("secret");
+
+    if(box.style.display === "block"){
+
+        box.style.display="none";
+
+    }else{
+
+        box.style.display="block";
+
+        makeHearts();
+
+    }
+
+}
+
+
+/* FLOATING HEARTS */
+
+function makeHearts(){
+
+    const emojis=[
+        "🖤",
+        "♡",
+        "✨",
+        "🌙",
+        "🪷",
+        "💫"
+    ];
+
+    for(let i=0;i<25;i++){
+
+        const heart =
+            document.createElement("div");
+
+        heart.className="heart";
+
+        heart.innerHTML =
+            emojis[
+                Math.floor(
+                    Math.random()*emojis.length
+                )
+            ];
+
+        heart.style.left =
+            Math.random()*100+"%";
+
+        heart.style.fontSize =
+            (15+Math.random()*25)+"px";
+
+        heart.style.animationDuration =
+            (4+Math.random()*4)+"s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },8000);
+    }
+
+}
+
+</script>
+
+</body>
+</html>
+```
